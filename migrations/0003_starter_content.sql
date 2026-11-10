@@ -1,7 +1,7 @@
 update website_settings
-set phone = '+91 98765 43210',
+set phone = '+91 98408 22267',
     email = 'hello@grandeurconstructions.in',
-    whatsapp = '+91 98765 43210',
+    whatsapp = '+91 98408 22267',
     instagram = 'https://www.instagram.com/grandeurconstructions',
     facebook = 'https://www.facebook.com/grandeurconstructions',
     seo_title = 'Grandeur Constructions | Chennai Building & Design Studio',
