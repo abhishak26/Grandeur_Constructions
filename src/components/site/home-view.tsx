@@ -303,7 +303,7 @@ export function HomeView({ data }: { data: HomeData }) {
       addressCountry: "IN",
     },
     areaServed: "Chennai",
-    ...(settings.phone ? { telephone: settings.phone } : {}),
+    telephone: COMPANY.phone,
     ...(settings.email ? { email: settings.email } : {}),
     ...(settings.publicSiteUrl ? { url: settings.publicSiteUrl } : {}),
   };
@@ -591,17 +591,13 @@ export function HomeView({ data }: { data: HomeData }) {
             <h2 className="mt-3 font-display text-4xl text-secondary">Write to the studio.</h2>
             <p className="mt-4 text-ink-soft">{settings.address}</p>
             <div className="mt-6 space-y-2 text-sm">
-              {settings.phone ? (
-                <a
-                  className="block font-semibold text-secondary"
-                  href={`tel:${phoneDigits(settings.phone)}`}
-                  onClick={() => track("phone_click", { location: "home" })}
-                >
-                  {settings.phone}
-                </a>
-              ) : (
-                <p className="text-ink-soft">Phone number not published yet.</p>
-              )}
+              <a
+                className="block font-semibold text-secondary"
+                href={`tel:${phoneDigits(COMPANY.phone)}`}
+                onClick={() => track("phone_click", { location: "home" })}
+              >
+                {COMPANY.phone}
+              </a>
               {settings.email ? (
                 <a className="block font-semibold text-secondary" href={`mailto:${settings.email}`}>
                   {settings.email}

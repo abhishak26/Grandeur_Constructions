@@ -80,17 +80,13 @@ export function Footer({
         <div className="md:col-span-2">
           <p className="text-xs font-semibold tracking-widest text-primary uppercase">Studio</p>
           <p className="mt-4 text-sm leading-relaxed text-background/80">{settings.address}</p>
-          {settings.phone ? (
-            <a
-              href={`tel:${phoneDigits(settings.phone)}`}
-              className="mt-3 block text-sm text-background hover:text-primary"
-              onClick={() => track("phone_click", { location: "footer" })}
-            >
-              {settings.phone}
-            </a>
-          ) : (
-            <p className="mt-3 text-sm text-background/60">Phone not published yet.</p>
-          )}
+          <a
+            href={`tel:${phoneDigits(COMPANY.phone)}`}
+            className="mt-3 block text-sm text-background hover:text-primary"
+            onClick={() => track("phone_click", { location: "footer" })}
+          >
+            {COMPANY.phone}
+          </a>
           {settings.email ? (
             <a href={`mailto:${settings.email}`} className="mt-2 block break-all text-sm text-background hover:text-primary">
               {settings.email}
