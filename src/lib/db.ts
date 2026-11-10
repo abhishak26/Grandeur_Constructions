@@ -1,4 +1,5 @@
 import { pendingMigrations } from "../../scripts/migration-plan.mjs";
+import { readFile } from "node:fs/promises";
 
 /** Which database backend is active. */
 export type DbSource = "neon" | "pglite";
@@ -111,7 +112,11 @@ async function createPgliteSql(): Promise<Sql> {
   // data survives source edits (it resets on dev-server restart).
   globalRef.__pgliteInstance__ ??= (async () => {
     const { PGlite } = await import("@electric-sql/pglite");
+    const fsBundle = new Blob([
+      await readFile(new URL("../_libs/pglite.data", import.meta.url)),
+    ]);
     const pg = new PGlite("memory://", {
+      fsBundle,
       parsers: {
         [OID_INT8]: Number,
         [OID_DATE]: identity,
