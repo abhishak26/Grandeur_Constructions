@@ -82,6 +82,12 @@
   }
 }
 
+.nav-edge-glow {
+  box-shadow:
+    0 1px 0 rgb(255 184 0 / 38%),
+    0 5px 18px rgb(255 184 0 / 14%);
+}
+
 .arch-grid {
   background-image:
     linear-gradient(to right, color-mix(in srgb, var(--border) 80%, transparent) 1px, transparent 1px),
