@@ -22,7 +22,7 @@ export function Header() {
           <img
             src="/media/grandeur-logo.png"
             alt="Grandeur Constructions"
-            className="h-12 w-auto max-w-[16rem] object-contain"
+            className="h-14 w-auto max-w-[18rem] object-contain"
           />
         </Link>
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
