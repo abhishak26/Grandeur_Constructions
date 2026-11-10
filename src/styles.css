@@ -89,6 +89,32 @@
   background-size: 3.5rem 3.5rem;
 }
 
+.nav-pill-link:hover,
+.nav-pill-link.is-active {
+  border-color: transparent;
+  color: var(--secondary);
+  background: linear-gradient(105deg, #ff65c3, #a86cff 28%, #28c9ff 52%, #6df2c1 72%, #ffb84d);
+  background-size: 220% 100%;
+  animation: nav-pill-aurora 3s ease-in-out infinite alternate;
+}
+
+@keyframes nav-pill-aurora {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-pill-link:hover,
+  .nav-pill-link.is-active {
+    animation: none;
+    background-position: 50% 50%;
+  }
+}
+
 .hero-frame {
   min-height: 34rem;
   height: 78vh;

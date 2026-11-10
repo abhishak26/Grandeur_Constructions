@@ -30,9 +30,9 @@ export function Header() {
             <Link
               key={to}
               to={to}
-              className="nav-pill-link rounded-full border border-transparent px-4 py-2 text-sm text-ink transition-colors hover:border-primary hover:bg-primary hover:text-secondary"
+              className="nav-pill-link rounded-full border border-transparent px-4 py-2 text-sm text-ink transition-colors"
               activeOptions={{ exact: to === "/" }}
-              activeProps={{ className: "nav-pill-link rounded-full border border-primary bg-primary px-4 py-2 text-sm font-semibold text-secondary" }}
+              activeProps={{ className: "nav-pill-link is-active rounded-full border border-transparent px-4 py-2 text-sm font-semibold text-secondary" }}
             >
               {label}
             </Link>
