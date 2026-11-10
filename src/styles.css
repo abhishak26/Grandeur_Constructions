@@ -54,7 +54,7 @@
   }
 
   .font-display {
-    color: transparent;
+    color: transparent !important;
     background: linear-gradient(
       105deg,
       #ff65c3 0%,
