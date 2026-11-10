@@ -82,37 +82,6 @@
   }
 }
 
-.nav-aurora-link:hover {
-  color: transparent !important;
-  background: linear-gradient(105deg, #ff65c3, #a86cff 28%, #28c9ff 52%, #6df2c1 72%, #ffb84d);
-  background-size: 220% 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: nav-aurora-flow 2.8s ease-in-out infinite alternate;
-}
-
-.nav-aurora-link:hover::after {
-  background: linear-gradient(105deg, #ff65c3, #a86cff 28%, #28c9ff 52%, #6df2c1 72%, #ffb84d);
-  background-size: 220% 100%;
-  animation: nav-aurora-flow 2.8s ease-in-out infinite alternate;
-}
-
-@keyframes nav-aurora-flow {
-  from {
-    background-position: 0% 50%;
-  }
-  to {
-    background-position: 100% 50%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .nav-aurora-link:hover {
-    animation: none;
-    background-position: 50% 50%;
-  }
-}
-
 .arch-grid {
   background-image:
     linear-gradient(to right, color-mix(in srgb, var(--border) 80%, transparent) 1px, transparent 1px),
