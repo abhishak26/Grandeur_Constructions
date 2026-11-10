@@ -33,7 +33,7 @@ export function Footer({
   return (
     <footer className="bg-secondary text-background">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-12 md:px-8">
-        <div className="md:col-span-4">
+        <div className="md:col-span-4 lg:col-span-3">
           <img
             src="/media/grandeur-logo.png"
             alt="Grandeur Constructions"
@@ -43,7 +43,7 @@ export function Footer({
             {settings.tagline} A residential and commercial construction practice based in Perambur, Chennai.
           </p>
         </div>
-        <div className="md:col-span-3">
+        <div className="md:col-span-3 lg:col-span-2">
           <p className="text-xs font-semibold tracking-widest text-primary uppercase">Visit</p>
           <ul className="mt-4 space-y-2 text-sm">
             {[
@@ -64,7 +64,7 @@ export function Footer({
             ))}
           </ul>
         </div>
-        <div className="md:col-span-3">
+        <div className="md:col-span-3 lg:col-span-3">
           <p className="text-xs font-semibold tracking-widest text-primary uppercase">Services</p>
           <ul className="mt-4 space-y-2 text-sm">
             {services.map((service) => (
@@ -80,9 +80,9 @@ export function Footer({
             ))}
           </ul>
         </div>
-        <div className="md:col-span-2">
+        <div className="md:col-span-2 lg:col-span-4">
           <p className="text-xs font-semibold tracking-widest text-primary uppercase">Studio</p>
-          <p className="mt-4 max-w-[15rem] text-sm leading-relaxed text-background/80 [overflow-wrap:anywhere]">{settings.address}</p>
+          <p className="mt-4 max-w-none text-sm leading-relaxed text-background/80">{settings.address}</p>
           <a
             href={`tel:${phoneDigits(COMPANY.phone)}`}
             className="mt-3 block text-sm text-background hover:text-primary"
@@ -91,7 +91,7 @@ export function Footer({
             {COMPANY.phone}
           </a>
           {settings.email ? (
-            <a href={`mailto:${settings.email}`} className="mt-2 block max-w-[15rem] break-words text-sm text-background hover:text-primary [overflow-wrap:anywhere]">
+            <a href={`mailto:${settings.email}`} className="mt-2 block break-words text-sm text-background hover:text-primary">
               {settings.email}
             </a>
           ) : (
