@@ -169,6 +169,41 @@ const HERO_SLIDE_COPY = [
   },
 ] as const;
 
+const PARTNER_LOGOS = [
+  "ACC",
+  "Yale Smart Living",
+  "UltraTech",
+  "SOMANY",
+  "Schüco",
+  "Saint-Gobain",
+  "Panasonic",
+  "Johnson Lifts",
+  "Jaquar",
+] as const;
+
+function PartnerLogoMarquee() {
+  return (
+    <section className="partner-marquee" aria-label="Trusted material and design partners">
+      <div className="mx-auto max-w-7xl px-5 pt-16 text-center md:px-8">
+        <p className="partner-marquee-kicker">Trusted &amp; quality</p>
+        <h2 className="partner-marquee-title">Partnership</h2>
+        <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-ink-soft">
+          We work with dependable materials and specialist brands to bring lasting quality to every space.
+        </p>
+      </div>
+      <div className="partner-marquee-window mt-10">
+        <div className="partner-marquee-track">
+          {[...PARTNER_LOGOS, ...PARTNER_LOGOS].map((logo, index) => (
+            <div className="partner-logo-tile" key={`${logo}-${index}`} aria-hidden={index >= PARTNER_LOGOS.length}>
+              <span>{logo}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const COMPLETED_PROJECT_IMAGES = [
   { src: "https://picsum.photos/id/1018/1200/900", alt: "Completed contemporary home surrounded by greenery" },
   { src: "https://picsum.photos/id/1033/1200/900", alt: "Completed timber-clad residence in a wooded setting" },
@@ -564,6 +599,8 @@ export function HomeView({ data }: { data: HomeData }) {
           </Button>
         </div>
       </section>
+
+      <PartnerLogoMarquee />
 
       <section className="mx-auto max-w-3xl px-5 py-20 md:px-8">
         <SectionLabel>Questions</SectionLabel>
