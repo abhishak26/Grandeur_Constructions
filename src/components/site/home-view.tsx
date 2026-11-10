@@ -120,16 +120,16 @@ function HeroMedia({
           key={slide.imageUrl + slideIndex}
           src={slide.imageUrl}
           alt={slide.alt ?? ""}
-          className={`absolute inset-0 h-full w-full object-cover brightness-105 transition-opacity duration-700 ${
+          className={`pointer-events-none absolute inset-0 h-full w-full object-cover brightness-105 transition-opacity duration-700 ${
             slideIndex === index ? "opacity-100" : "opacity-0"
           }`}
           fetchPriority={slideIndex === 0 ? "high" : "auto"}
         />
       ))}
-      <div className="absolute inset-0 bg-gradient-to-r from-secondary/80 via-secondary/35 to-secondary/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-secondary/35 via-transparent to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-secondary/80 via-secondary/35 to-secondary/10" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-secondary/35 via-transparent to-transparent" />
       {frames.length > 1 ? (
-        <div className="absolute bottom-4 left-4 flex gap-2">
+        <div className="pointer-events-auto absolute bottom-4 left-4 z-20 flex gap-2">
           {frames.map((slide, slideIndex) => (
             <button
               key={slide.imageUrl}
@@ -515,9 +515,9 @@ export function HomeView({ data }: { data: HomeData }) {
           {data.team.length ? (
             <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {data.team.map((member) => (
-                <li key={member.name} className="flex h-full flex-col rounded-3xl bg-surface p-5">
+                <li key={member.name} className="group flex h-full flex-col rounded-3xl bg-surface p-5 transition-shadow duration-300 hover:shadow-xl">
                   {member.photoUrl ? (
-                    <img src={member.photoUrl} alt={`${member.name}, ${member.designation}`} className="mb-4 aspect-[4/5] w-full rounded-2xl object-cover object-[center_20%]" />
+                    <img src={member.photoUrl} alt={`${member.name}, ${member.designation}`} className="mb-4 aspect-[4/5] w-full rounded-2xl object-cover object-[center_20%] transition duration-500 group-hover:scale-[1.02]" />
                   ) : null}
                   <p className="font-display text-2xl text-secondary">{member.name}</p>
                   <p className="text-sm text-primary">{member.designation}</p>
