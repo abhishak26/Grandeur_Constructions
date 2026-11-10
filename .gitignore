@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+.node_modules.lock
+
+# Build and bundler output
+dist/
+.vite/
+.tanstack/
+
+# Deployment and local environment
+.vercel/
+.env
+.env.*
+!.env.example
+
+# App Builder runtime files
+.grok/app-env.json
+.grok/app-startup.log
+.grok/status
+
+# Logs and test output
+*.log
+coverage/
+playwright-report/
+test-results/
+
+# Generated local artifacts
+artifacts/*
+!artifacts/.gitkeep
+screenshots/*
+!screenshots/.gitkeep
+
+# OS metadata
+.DS_Store
+Thumbs.db
