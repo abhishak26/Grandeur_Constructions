@@ -170,15 +170,11 @@ const HERO_SLIDE_COPY = [
 ] as const;
 
 const PARTNER_LOGOS = [
-  { name: "ACC Limited", src: "https://logo.clearbit.com/acclimited.com" },
-  { name: "Yale Smart Living", src: "https://cdn.simpleicons.org/yale/7f7f7f" },
-  { name: "UltraTech Cement", src: "https://logo.clearbit.com/ultratechcement.com" },
-  { name: "SOMANY", src: "https://logo.clearbit.com/somanyceramics.com" },
-  { name: "Schüco", src: "https://logo.clearbit.com/schuco.com" },
-  { name: "Saint-Gobain", src: "https://logo.clearbit.com/saint-gobain.com" },
-  { name: "Panasonic", src: "https://cdn.simpleicons.org/panasonic/7f7f7f" },
-  { name: "Johnson Lifts", src: "https://logo.clearbit.com/johnsonliftsltd.com" },
-  { name: "Jaquar", src: "https://logo.clearbit.com/jaquar.com" },
+  { name: "SAP", src: "https://cdn.simpleicons.org/sap" },
+  { name: "Uber", src: "https://cdn.simpleicons.org/uber" },
+  { name: "Verizon", src: "https://cdn.simpleicons.org/verizon" },
+  { name: "Yale", src: "https://cdn.simpleicons.org/yale" },
+  { name: "Panasonic", src: "https://cdn.simpleicons.org/panasonic" },
 ] as const;
 
 function PartnerLogoMarquee() {
