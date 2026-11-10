@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageIntro, RichText } from "@/components/site/bits";
+import { COMPANY } from "@/lib/company";
 import { getChrome } from "@/lib/public.functions";
 
 export const Route = createFileRoute("/_site/privacy")({
@@ -27,11 +28,7 @@ The studio keeps these details so it can reply. They are not sold. They are visi
 If a Google Analytics measurement ID is saved in settings, pages can send usage events, including form submissions, phone clicks and WhatsApp clicks. The WhatsApp button, when a number is published, opens WhatsApp. That conversation is handled by WhatsApp, not by this site.
 
 ## Corrections
-To ask for a correction or deletion, contact the studio using the phone or email published on the contact page. ${
-    settings.phone || settings.email
-      ? `Currently published: ${[settings.phone, settings.email].filter(Boolean).join(", ")}.`
-      : "If neither is published yet, send an enquiry and say that it is a privacy request."
-  }`;
+To ask for a correction or deletion, contact the studio using the phone or email published on the contact page. Currently published: ${[COMPANY.phone, settings.email].filter(Boolean).join(", ")}.`;
   return (
     <>
       <PageIntro kicker="Privacy" title="What this site keeps." />

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { EnquiryForm } from "@/components/site/forms";
 import { PageIntro } from "@/components/site/bits";
+import { COMPANY } from "@/lib/company";
 import { phoneDigits, track } from "@/lib/format";
 import { getChrome } from "@/lib/public.functions";
 
@@ -32,17 +33,13 @@ function ContactPage() {
           <h2 className="font-display text-2xl text-secondary">Studio</h2>
           <p className="mt-3 text-ink-soft">{settings.address}</p>
           <div className="mt-6 space-y-2">
-            {settings.phone ? (
-              <a
-                className="block font-semibold"
-                href={`tel:${phoneDigits(settings.phone)}`}
-                onClick={() => track("phone_click", { location: "contact" })}
-              >
-                {settings.phone}
-              </a>
-            ) : (
-              <p className="text-sm text-ink-soft">Phone number not published yet.</p>
-            )}
+            <a
+              className="block font-semibold"
+              href={`tel:${phoneDigits(COMPANY.phone)}`}
+              onClick={() => track("phone_click", { location: "contact" })}
+            >
+              {COMPANY.phone}
+            </a>
             {settings.email ? (
               <a className="block font-semibold" href={`mailto:${settings.email}`}>
                 {settings.email}
