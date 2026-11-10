@@ -101,14 +101,40 @@
   transition: opacity 180ms ease;
 }
 
-.nav-glow-item:hover::before,
-.nav-glow-item.is-active::before {
+.nav-glow-item:hover::before {
   opacity: 1;
+  animation: nav-live-radial-glow 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes nav-live-radial-glow {
+  0% {
+    transform: scale(0.82) translateX(-0.2rem);
+    background-position: 0% 50%;
+    filter: blur(0.55rem);
+    opacity: 0.62;
+  }
+  50% {
+    transform: scale(1.08) translateX(0.15rem);
+    background-position: 50% 50%;
+    filter: blur(0.35rem);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.9) translateX(0.3rem);
+    background-position: 100% 50%;
+    filter: blur(0.55rem);
+    opacity: 0.72;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .nav-glow-item::before {
     transition: none;
+  }
+
+  .nav-glow-item:hover::before {
+    animation: none;
+    opacity: 1;
   }
 }
 
