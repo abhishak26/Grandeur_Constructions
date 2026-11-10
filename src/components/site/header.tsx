@@ -16,7 +16,7 @@ const LINKS = [
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="nav-radial-glow sticky top-0 z-40 border-b border-line bg-background/90 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-line bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 md:px-8">
         <Link to="/" className="flex min-w-0 shrink-0 items-center gap-3" onClick={() => setOpen(false)}>
           <img
@@ -30,9 +30,9 @@ export function Header() {
             <Link
               key={to}
               to={to}
-              className="relative py-2 text-sm text-ink transition-colors after:absolute after:right-0 after:bottom-0 after:left-0 after:h-0.5 after:origin-left after:scale-x-0 after:bg-primary after:transition-transform hover:text-secondary hover:after:scale-x-100"
+              className="nav-glow-item relative rounded-full px-3 py-2 text-sm text-ink transition-colors hover:text-secondary"
               activeOptions={{ exact: to === "/" }}
-              activeProps={{ className: "relative py-2 text-sm font-semibold text-secondary after:absolute after:right-0 after:bottom-0 after:left-0 after:h-0.5 after:origin-left after:scale-x-100 after:bg-primary" }}
+              activeProps={{ className: "nav-glow-item is-active relative rounded-full px-3 py-2 text-sm font-semibold text-secondary" }}
             >
               {label}
             </Link>
