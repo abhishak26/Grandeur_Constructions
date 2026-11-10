@@ -170,15 +170,15 @@ const HERO_SLIDE_COPY = [
 ] as const;
 
 const PARTNER_LOGOS = [
-  "ACC",
-  "Yale Smart Living",
-  "UltraTech",
-  "SOMANY",
-  "Schüco",
-  "Saint-Gobain",
-  "Panasonic",
-  "Johnson Lifts",
-  "Jaquar",
+  { name: "ACC Limited", src: "https://logo.clearbit.com/acclimited.com" },
+  { name: "Yale Smart Living", src: "https://cdn.simpleicons.org/yale/7f7f7f" },
+  { name: "UltraTech Cement", src: "https://logo.clearbit.com/ultratechcement.com" },
+  { name: "SOMANY", src: "https://logo.clearbit.com/somanyceramics.com" },
+  { name: "Schüco", src: "https://logo.clearbit.com/schuco.com" },
+  { name: "Saint-Gobain", src: "https://logo.clearbit.com/saint-gobain.com" },
+  { name: "Panasonic", src: "https://cdn.simpleicons.org/panasonic/7f7f7f" },
+  { name: "Johnson Lifts", src: "https://logo.clearbit.com/johnsonliftsltd.com" },
+  { name: "Jaquar", src: "https://logo.clearbit.com/jaquar.com" },
 ] as const;
 
 function PartnerLogoMarquee() {
@@ -196,8 +196,8 @@ function PartnerLogoMarquee() {
         {rows.map((row, rowIndex) => (
           <div className={`partner-marquee-track ${rowIndex === 1 ? "partner-marquee-track-reverse" : ""}`} key={rowIndex}>
             {[...row, ...row].map((logo, index) => (
-              <div className="partner-logo-tile" key={`${rowIndex}-${logo}-${index}`} aria-hidden={index >= row.length}>
-                <span>{logo}</span>
+              <div className="partner-logo-tile" key={`${rowIndex}-${logo.name}-${index}`} aria-hidden={index >= row.length}>
+                <img src={logo.src} alt={index >= row.length ? "" : logo.name} loading="lazy" />
               </div>
             ))}
           </div>

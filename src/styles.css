@@ -159,27 +159,25 @@
   place-items: center;
   padding: 1.25rem;
   border-right: 1px solid var(--surface-alt);
-  color: #e85d3f;
-  font-family: var(--font-display);
-  font-size: clamp(1rem, 2vw, 1.8rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  text-align: center;
-  text-transform: uppercase;
-  white-space: normal;
+}
+
+.partner-logo-tile img {
+  display: block;
+  width: min(100%, 10rem);
+  max-height: 4.5rem;
+  object-fit: contain;
 }
 
 .partner-logo-tile:nth-child(3n) {
-  color: #4a93c5;
-  font-style: italic;
+  background: #fff;
 }
 
 .partner-logo-tile:nth-child(4n) {
-  color: #81a832;
+  background: #fdfdfd;
 }
 
 .partner-logo-tile:nth-child(5n) {
-  color: #e2a62d;
+  background: #fff;
 }
 
 @keyframes partner-marquee-scroll {
