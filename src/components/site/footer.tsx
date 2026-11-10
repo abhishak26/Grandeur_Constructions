@@ -34,8 +34,11 @@ export function Footer({
     <footer className="bg-secondary text-background">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-12 md:px-8">
         <div className="md:col-span-4">
-          <p className="font-display text-2xl tracking-wide">GRANDEUR</p>
-          <p className="mt-1 text-xs tracking-widest text-primary">CONSTRUCTIONS</p>
+          <img
+            src="/media/grandeur-logo.png"
+            alt="Grandeur Constructions"
+            className="footer-logo h-auto w-52 max-w-full object-contain object-left"
+          />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-background/75">
             {settings.tagline} A residential and commercial construction practice based in Perambur, Chennai.
           </p>
@@ -79,7 +82,7 @@ export function Footer({
         </div>
         <div className="md:col-span-2">
           <p className="text-xs font-semibold tracking-widest text-primary uppercase">Studio</p>
-          <p className="mt-4 text-sm leading-relaxed text-background/80">{settings.address}</p>
+          <p className="mt-4 max-w-[15rem] text-sm leading-relaxed text-background/80 [overflow-wrap:anywhere]">{settings.address}</p>
           <a
             href={`tel:${phoneDigits(COMPANY.phone)}`}
             className="mt-3 block text-sm text-background hover:text-primary"
@@ -88,7 +91,7 @@ export function Footer({
             {COMPANY.phone}
           </a>
           {settings.email ? (
-            <a href={`mailto:${settings.email}`} className="mt-2 block break-all text-sm text-background hover:text-primary">
+            <a href={`mailto:${settings.email}`} className="mt-2 block max-w-[15rem] break-words text-sm text-background hover:text-primary [overflow-wrap:anywhere]">
               {settings.email}
             </a>
           ) : (
