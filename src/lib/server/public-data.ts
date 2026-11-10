@@ -1,4 +1,5 @@
 import { httpsOrNull, safeGa } from "@/lib/schemas";
+import { COMPANY } from "@/lib/company";
 import { bool, db, imagesByProject, num, str, strOrNull } from "@/lib/server/util";
 
 function mapSettings(row: Record<string, unknown> | undefined) {
@@ -8,9 +9,9 @@ function mapSettings(row: Record<string, unknown> | undefined) {
     address:
       str(row?.address) ||
       "AB 103 & 105, 3rd Floor, 4th Avenue, Shanthi Colony, Anna Nagar, Chennai - 600040.",
-    phone: strOrNull(row?.phone),
+    phone: COMPANY.phone,
     email: strOrNull(row?.email),
-    whatsapp: strOrNull(row?.whatsapp),
+    whatsapp: COMPANY.phone,
     mapsEmbedUrl: httpsOrNull(strOrNull(row?.maps_embed_url)),
     publicSiteUrl: httpsOrNull(strOrNull(row?.public_site_url)),
     facebook: httpsOrNull(strOrNull(row?.facebook)),
