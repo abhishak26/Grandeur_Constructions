@@ -1,4 +1,4 @@
-import { readdirSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import type { Plugin } from "vite";
 import { defineConfig } from "vite";
@@ -19,6 +19,28 @@ function hasGlobbedMigrations(root: string): boolean {
   } catch {
     return false;
   }
+}
+
+function pgliteDataPlugin(): Plugin {
+  return {
+    name: "app-builder:pglite-data",
+    apply: "build",
+    generateBundle() {
+      const dataPath = join(
+        process.cwd(),
+        "node_modules",
+        "@electric-sql",
+        "pglite",
+        "dist",
+        "pglite.data",
+      );
+      this.emitFile({
+        type: "asset",
+        fileName: "_libs/pglite.data",
+        source: readFileSync(dataPath),
+      });
+    },
+  };
 }
 
 /**
@@ -158,6 +180,7 @@ export default defineConfig(({ command, isPreview }) => ({
   },
   resolve: { tsconfigPaths: true },
   plugins: [
+    pgliteDataPlugin(),
     pgliteBootstrapPlugin(),
     // Before tanstackStart so /auth/popup never falls through to the SPA.
     authPopupPlugin(),
