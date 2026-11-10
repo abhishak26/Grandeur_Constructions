@@ -94,6 +94,16 @@
   height: 78vh;
 }
 
+.hero-carousel,
+.hero-carousel-content {
+  min-height: max(34rem, calc(100svh - 5rem));
+  height: calc(100svh - 5rem);
+}
+
+.hero-carousel-content {
+  height: 100%;
+}
+
 .frame-card {
   aspect-ratio: 4 / 3;
 }

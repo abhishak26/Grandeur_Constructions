@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import * as Accordion from "@radix-ui/react-accordion";
-import { ArrowUpRight, ChevronDown, Heart, X } from "lucide-react";
-import { useEffect, useState, type MouseEvent } from "react";
+import { ArrowUpRight, ChevronDown, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { Button, EmptyState, Highlight, Reveal, SectionLabel } from "@/components/site/bits";
 import { EnquiryForm } from "@/components/site/forms";
@@ -169,13 +169,6 @@ const HERO_SLIDE_COPY = [
   },
 ] as const;
 
-const PROJECT_LIKE_COUNTS: Record<string, number> = {
-  "adyar-courtyard-home": 24,
-  "anna-nagar-workplace": 18,
-  "perambur-family-residence": 31,
-  "ecr-weekend-retreat": 27,
-};
-
 const COMPLETED_PROJECT_IMAGES = [
   { src: "https://picsum.photos/id/1018/1200/900", alt: "Completed contemporary home surrounded by greenery" },
   { src: "https://picsum.photos/id/1033/1200/900", alt: "Completed timber-clad residence in a wooded setting" },
@@ -189,19 +182,6 @@ const COMPLETED_PROJECT_IMAGES = [
 
 function ProjectCard({ project, onOpen }: { project: Project; onOpen: (project: Project) => void }) {
   const image = project.images[0];
-  const storageKey = `grandeur-project-like:${project.slug}`;
-  const [liked, setLiked] = useState(false);
-
-  useEffect(() => {
-    setLiked(window.localStorage.getItem(storageKey) === "true");
-  }, [storageKey]);
-
-  function toggleLike(event: MouseEvent<HTMLButtonElement>) {
-    event.stopPropagation();
-    const nextLiked = !liked;
-    setLiked(nextLiked);
-    window.localStorage.setItem(storageKey, String(nextLiked));
-  }
 
   return (
     <article className="group flex h-full flex-col overflow-hidden rounded-3xl bg-surface text-left">
@@ -227,22 +207,8 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: (project: 
           <h3 className="font-display text-2xl text-secondary">{project.name}</h3>
           {project.location ? <p className="mt-1 text-sm text-ink-soft">{project.location}</p> : null}
         </button>
-        <div className="mt-auto flex items-center justify-between gap-3 pt-5">
+        <div className="mt-auto pt-5">
           <span className="text-xs text-ink-soft">Project detail</span>
-          <button
-            type="button"
-            aria-label={`${liked ? "Unlike" : "Like"} ${project.name}`}
-            aria-pressed={liked}
-            onClick={toggleLike}
-            className={`inline-flex min-h-10 items-center gap-2 rounded-full border px-3 text-sm font-semibold transition ${
-              liked
-                ? "border-primary bg-primary/15 text-secondary"
-                : "border-line bg-background text-ink-soft hover:border-primary hover:text-secondary"
-            }`}
-          >
-            <Heart className={`size-4 ${liked ? "fill-primary text-primary" : ""}`} />
-            {PROJECT_LIKE_COUNTS[project.slug] + (liked ? 1 : 0)}
-          </button>
         </div>
       </div>
     </article>
@@ -346,9 +312,9 @@ export function HomeView({ data }: { data: HomeData }) {
     <div>
       <LeadCaptureModal projectTypes={projectTypes} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section className="relative min-h-[38rem] overflow-hidden bg-secondary text-background">
+      <section className="hero-carousel relative overflow-hidden bg-secondary text-background">
         <HeroMedia slides={data.slides} index={heroSlideIndex} onIndexChange={setHeroSlideIndex} />
-        <div className="relative mx-auto flex min-h-[38rem] max-w-7xl items-center px-5 py-16 md:px-8">
+        <div className="hero-carousel-content relative mx-auto flex max-w-7xl items-center px-5 py-16 md:px-8">
           <div className="max-w-2xl">
             <h1 className="font-display text-4xl leading-tight md:text-6xl">
               <Highlight text={heroCopy.heading} highlight={heroCopy.highlight} />
