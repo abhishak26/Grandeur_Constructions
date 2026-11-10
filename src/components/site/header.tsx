@@ -30,9 +30,9 @@ export function Header() {
             <Link
               key={to}
               to={to}
-              className="relative py-2 text-sm text-ink transition-colors after:absolute after:right-0 after:bottom-0 after:left-0 after:h-0.5 after:origin-left after:scale-x-0 after:bg-primary after:transition-transform hover:text-secondary hover:after:scale-x-100"
+              className="nav-aurora-link relative py-2 text-sm text-ink transition-colors after:absolute after:right-0 after:bottom-0 after:left-0 after:h-0.5 after:origin-left after:scale-x-0 after:bg-primary after:transition-transform hover:text-secondary hover:after:scale-x-100"
               activeOptions={{ exact: to === "/" }}
-              activeProps={{ className: "relative py-2 text-sm font-semibold text-secondary after:absolute after:right-0 after:bottom-0 after:left-0 after:h-0.5 after:origin-left after:scale-x-100 after:bg-primary" }}
+              activeProps={{ className: "nav-aurora-link relative py-2 text-sm font-semibold text-secondary after:absolute after:right-0 after:bottom-0 after:left-0 after:h-0.5 after:origin-left after:scale-x-100 after:bg-primary" }}
             >
               {label}
             </Link>
