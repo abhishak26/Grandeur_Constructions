@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import * as Accordion from "@radix-ui/react-accordion";
-import { ArrowUpRight, ChevronDown, Heart, House, PencilRuler, Sofa, X } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Heart, X } from "lucide-react";
 import { useEffect, useState, type MouseEvent } from "react";
 import { useReducedMotion } from "framer-motion";
 import { Button, EmptyState, Highlight, Reveal, SectionLabel } from "@/components/site/bits";
@@ -284,7 +284,7 @@ function ProjectDetailModal({ project, onClose }: { project: Project; onClose: (
         role="dialog"
         aria-modal="true"
         aria-labelledby="project-dialog-title"
-        className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-background p-6 shadow-2xl md:p-8"
+        className="project-detail-modal w-full max-w-2xl rounded-3xl bg-background p-6 shadow-2xl md:p-8"
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-start justify-between gap-6">
@@ -360,26 +360,6 @@ export function HomeView({ data }: { data: HomeData }) {
               </Button>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className="office-showcase" aria-labelledby="office-showcase-title">
-        <h2 id="office-showcase-title">
-          Our Office @ <strong>ECR, <span>Chennai</span></strong>
-        </h2>
-        <div className="office-showcase-grid">
-          {[
-            ["/media/interior.jpg", "Reception area at the Grandeur office"],
-            ["/media/design.jpg", "Materials and design details in the office"],
-            ["/media/commercial.jpg", "Meeting area at the Grandeur office"],
-            ["/media/structure.jpg", "Studio workspace for project planning"],
-            ["/media/site.jpg", "Warm office lounge and discussion area"],
-            ["/media/facade.jpg", "Glass-fronted office workspace"],
-          ].map(([src, alt]) => (
-            <div className="office-showcase-tile" key={src}>
-              <img src={src} alt={alt} loading="lazy" />
-            </div>
-          ))}
         </div>
       </section>
 
@@ -598,16 +578,16 @@ export function HomeView({ data }: { data: HomeData }) {
             </h2>
           </div>
           <div className="services-showcase-list">
-            <article className="services-showcase-item services-showcase-item-active">
-              <PencilRuler aria-hidden="true" />
+            <article className="services-showcase-item">
+              <img src="/media/design.jpg" alt="Architectural drawings and design materials" loading="lazy" />
               <h3>Architectural<br />Designs</h3>
             </article>
             <article className="services-showcase-item">
-              <House aria-hidden="true" />
+              <img src="/media/residential.jpg" alt="Completed residential construction" loading="lazy" />
               <h3>Residential<br />Construction</h3>
             </article>
             <article className="services-showcase-item">
-              <Sofa aria-hidden="true" />
+              <img src="/media/interior.jpg" alt="Finished interior design" loading="lazy" />
               <h3>Interior<br />Designs</h3>
             </article>
           </div>

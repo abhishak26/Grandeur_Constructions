@@ -98,57 +98,6 @@
   aspect-ratio: 4 / 3;
 }
 
-.office-showcase {
-  padding: 3.75rem 1.25rem 4.5rem;
-  background: var(--background);
-}
-
-.office-showcase h2 {
-  margin: 0 auto 2.25rem;
-  color: var(--secondary);
-  font-family: var(--font-sans);
-  font-size: clamp(1.75rem, 3vw, 2.7rem);
-  font-weight: 300;
-  line-height: 1.1;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.office-showcase h2 strong {
-  font-weight: 800;
-}
-
-.office-showcase h2 span {
-  color: #ef1111;
-}
-
-.office-showcase-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 1300px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.office-showcase-tile {
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.office-showcase-tile img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 1.55 / 1;
-  object-fit: cover;
-  transition: transform 0.4s ease, filter 0.4s ease;
-}
-
-.office-showcase-tile:hover img,
-.office-showcase-tile:focus-within img {
-  transform: scale(1.08);
-  filter: brightness(88%);
-}
-
 .contact-map {
   display: block;
   width: 100%;
@@ -207,6 +156,7 @@
   display: grid;
   place-items: center;
   padding: 1.25rem;
+  overflow: hidden;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
   animation: lead-modal-fade-in 220ms ease-out both;
@@ -217,8 +167,8 @@
   display: grid;
   grid-template-columns: 21rem minmax(0, 1fr);
   width: min(100%, 50rem);
-  max-height: min(90vh, 36rem);
-  overflow: auto;
+  max-height: calc(100dvh - 2rem);
+  overflow: hidden;
   border-radius: 0.35rem;
   background: var(--background);
   box-shadow: 0 1.5rem 5rem rgb(0 0 0 / 30%);
@@ -299,6 +249,16 @@
   display: block;
   color: var(--primary);
   font-weight: 700;
+}
+
+.project-detail-modal {
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.project-detail-modal::-webkit-scrollbar {
+  display: none;
 }
 
 .compact-enquiry-form {
@@ -497,7 +457,6 @@
 }
 
 .services-showcase {
-  border-top: 1rem solid #f8d264;
   background: var(--background);
 }
 
@@ -559,16 +518,19 @@
   text-align: center;
 }
 
-.services-showcase-item-active {
-  border: 1px solid #e8dfce;
+.services-showcase-item img {
+  width: 100%;
+  max-width: 15rem;
+  aspect-ratio: 4 / 3;
+  margin: 0 auto 1.65rem;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  transition: transform 220ms ease, filter 220ms ease;
 }
 
-.services-showcase-item svg {
-  width: 4.4rem;
-  height: 4.4rem;
-  margin: 0 auto 1.65rem;
-  stroke-width: 1.25;
-  color: var(--secondary);
+.services-showcase-item:hover img {
+  transform: translateY(-0.2rem);
+  filter: brightness(0.94);
 }
 
 .services-showcase-item h3 {
@@ -577,6 +539,17 @@
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  .services-showcase-item img {
+    max-width: 13rem;
+  }
+}
+
+.services-showcase-item img {
+  height: 8.5rem;
+  margin: 0 auto 1.65rem;
 }
 
 .consultation-strip {
@@ -611,10 +584,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .office-showcase-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .contact-map {
     height: 24rem;
   }
@@ -638,7 +607,7 @@
 
   .lead-modal-card {
     grid-template-columns: 1fr;
-    max-height: 92vh;
+    max-height: calc(100dvh - 1.5rem);
   }
 
   .lead-modal-brand {
@@ -673,19 +642,6 @@
   }
 
   .completed-gallery-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .office-showcase {
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  .office-showcase h2 {
-    padding: 0 1.25rem;
-  }
-
-  .office-showcase-grid {
     grid-template-columns: 1fr;
   }
 
@@ -767,9 +723,8 @@
     font-size: 3rem;
   }
 
-  .services-showcase-item svg {
-    width: 2.75rem;
-    height: 2.75rem;
+  .services-showcase-item img {
+    height: 6rem;
     margin-bottom: 1rem;
   }
 

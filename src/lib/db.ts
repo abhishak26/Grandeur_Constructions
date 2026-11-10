@@ -112,9 +112,18 @@ async function createPgliteSql(): Promise<Sql> {
   // data survives source edits (it resets on dev-server restart).
   globalRef.__pgliteInstance__ ??= (async () => {
     const { PGlite } = await import("@electric-sql/pglite");
-    const fsBundle = new Blob([
-      await readFile(new URL("../_libs/pglite.data", import.meta.url)),
-    ]);
+    let fsBundleData: Buffer;
+    try {
+      fsBundleData = await readFile(new URL("../_libs/pglite.data", import.meta.url));
+    } catch (error) {
+      if (!(error instanceof Error) || !("code" in error) || error.code !== "ENOENT") throw error;
+      fsBundleData = await readFile(
+        new URL("../../node_modules/@electric-sql/pglite/dist/pglite.data", import.meta.url),
+      );
+    }
+    const fsBundleBytes = new Uint8Array(fsBundleData.byteLength);
+    fsBundleBytes.set(fsBundleData);
+    const fsBundle = new Blob([fsBundleBytes]);
     const pg = new PGlite("memory://", {
       fsBundle,
       parsers: {
