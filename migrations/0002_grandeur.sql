@@ -256,8 +256,8 @@ insert into website_settings (
   1,
   'Grandeur Constructions',
   'Building Trust. Creating Legacies.',
-  'No.24, 10, Paul Varghese St, Vetri Nagar, Perambur, Chennai, Tamil Nadu 600082.',
-  'https://maps.google.com/maps?q=No.24%2C%2010%2C%20Paul%20Varghese%20St%2C%20Vetri%20Nagar%2C%20Perambur%2C%20Chennai%2C%20Tamil%20Nadu%20600082&z=16&output=embed',
+  'AB 103 & 105, 3rd Floor, 4th Avenue, Shanthi Colony, Anna Nagar, Chennai - 600040.',
+  'https://maps.google.com/maps?q=AB%20103%20%26%20105%2C%203rd%20Floor%2C%204th%20Avenue%2C%20Shanthi%20Colony%2C%20Anna%20Nagar%2C%20Chennai%20600040&z=16&output=embed',
   'Grandeur Constructions | Building Trust. Creating Legacies.',
   'Residential and commercial construction in Perambur, Chennai. Architectural design, interiors, renovation, engineering and turnkey building by Grandeur Constructions.'
 ) on conflict (id) do nothing;
@@ -277,7 +277,7 @@ insert into homepage_content (
   'Explore Projects',
   '/projects',
   'A Chennai practice for building.',
-  'The studio is based at No.24, 10, Paul Varghese St, Vetri Nagar, Perambur. Work covers residential and commercial construction, from early planning through to handover. Project records, team profiles and client notes appear on this site only after they are published from the studio desk.',
+  'The studio is based at AB 103 & 105, 3rd Floor, 4th Avenue, Shanthi Colony, Anna Nagar, Chennai. Work covers residential and commercial construction, from early planning through to handover. Project records, team profiles and client notes appear on this site only after they are published from the studio desk.',
   '',
   '',
   '',
@@ -360,7 +360,7 @@ insert into faqs (id, question, answer, sort_order, published) values
    'Residential construction, commercial construction, architectural design, interior design, turnkey construction, structural engineering, renovation, civil engineering and project management.',
    3, true),
   ('faq-4', 'Where are you based?',
-   'No.24, 10, Paul Varghese St, Vetri Nagar, Perambur, Chennai, Tamil Nadu 600082.',
+   'AB 103 & 105, 3rd Floor, 4th Avenue, Shanthi Colony, Anna Nagar, Chennai - 600040.',
    4, true),
   ('faq-5', 'Will I see completed projects on this website?',
    'Only projects the studio publishes from its desk are shown. If a gallery is empty, those records have not been added yet.',

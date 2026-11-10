@@ -7,7 +7,7 @@ function mapSettings(row: Record<string, unknown> | undefined) {
     tagline: str(row?.tagline) || "Building Trust. Creating Legacies.",
     address:
       str(row?.address) ||
-      "No.24, 10, Paul Varghese St, Vetri Nagar, Perambur, Chennai, Tamil Nadu 600082.",
+      "AB 103 & 105, 3rd Floor, 4th Avenue, Shanthi Colony, Anna Nagar, Chennai - 600040.",
     phone: strOrNull(row?.phone),
     email: strOrNull(row?.email),
     whatsapp: strOrNull(row?.whatsapp),

@@ -3,11 +3,11 @@ export const COMPANY = {
   name: "Grandeur Constructions",
   tagline: "Building Trust. Creating Legacies.",
   address:
-    "No.24, 10, Paul Varghese St, Vetri Nagar, Perambur, Chennai, Tamil Nadu 600082.",
+    "AB 103 & 105, 3rd Floor, 4th Avenue, Shanthi Colony, Anna Nagar, Chennai - 600040.",
   locality: "Chennai",
   region: "Tamil Nadu",
-  postalCode: "600082",
-  street: "No.24, 10, Paul Varghese St, Vetri Nagar, Perambur",
+  postalCode: "600040",
+  street: "AB 103 & 105, 3rd Floor, 4th Avenue, Shanthi Colony, Anna Nagar",
   years: 10,
 } as const;
 
