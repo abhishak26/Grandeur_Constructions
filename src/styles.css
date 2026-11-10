@@ -137,13 +137,15 @@
 
 .partner-marquee-window {
   overflow: hidden;
-  border-top: 1px solid var(--surface-alt);
-  border-bottom: 1px solid var(--surface-alt);
+  padding: 0.25rem 0;
+  background: #fff;
 }
 
 .partner-marquee-track {
   display: flex;
+  gap: 1rem;
   width: max-content;
+  padding: 0.35rem 0;
   animation: partner-marquee-scroll 32s linear infinite;
 }
 
@@ -154,30 +156,22 @@
 
 .partner-logo-tile {
   display: grid;
-  width: clamp(9rem, 16vw, 15rem);
-  height: 8.5rem;
+  width: clamp(12rem, 20vw, 15rem);
+  height: 5rem;
   place-items: center;
-  padding: 1.25rem;
-  border-right: 1px solid var(--surface-alt);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 0.6rem;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 4%);
 }
 
 .partner-logo-tile img {
   display: block;
-  width: min(100%, 10rem);
-  max-height: 4.5rem;
+  width: min(100%, 8.5rem);
+  height: 2.75rem;
+  max-height: 2.75rem;
   object-fit: contain;
-}
-
-.partner-logo-tile:nth-child(3n) {
-  background: #fff;
-}
-
-.partner-logo-tile:nth-child(4n) {
-  background: #fdfdfd;
-}
-
-.partner-logo-tile:nth-child(5n) {
-  background: #fff;
 }
 
 @keyframes partner-marquee-scroll {
