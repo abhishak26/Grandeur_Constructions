@@ -642,7 +642,6 @@ export function HomeView({ data }: { data: HomeData }) {
               ) : (
                 <p className="text-ink-soft">Email address not published yet.</p>
               )}
-              {settings.whatsapp ? <p>WhatsApp is available from the button on this page.</p> : null}
             </div>
             </div>
             {settings.mapsEmbedUrl ? (
