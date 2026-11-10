@@ -2,6 +2,7 @@
 export const COMPANY = {
   name: "Grandeur Constructions",
   tagline: "Building Trust. Creating Legacies.",
+  phone: "+91 98408 22267",
   address:
     "AB 103 & 105, 3rd Floor, 4th Avenue, Shanthi Colony, Anna Nagar, Chennai - 600040.",
   locality: "Chennai",
