@@ -26,9 +26,9 @@ function TeamPage() {
         {team.length ? (
           <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {team.map((member) => (
-              <li key={member.name} className="flex h-full flex-col rounded-3xl bg-surface p-5">
+              <li key={member.name} className="group flex h-full flex-col rounded-3xl bg-surface p-5 transition-shadow duration-300 hover:shadow-xl">
                 {member.photoUrl ? (
-                    <img src={member.photoUrl} alt={`${member.name}, ${member.designation}`} className="mb-4 aspect-[4/5] w-full rounded-2xl object-cover object-[center_20%]" />
+                    <img src={member.photoUrl} alt={`${member.name}, ${member.designation}`} className="mb-4 aspect-[4/5] w-full rounded-2xl object-cover object-[center_20%] transition duration-500 group-hover:scale-[1.02]" />
                 ) : null}
                 <h2 className="font-display text-2xl text-secondary">{member.name}</h2>
                 <p className="text-sm text-primary">{member.designation}</p>

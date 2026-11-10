@@ -77,7 +77,7 @@ function CompactLeadForm() {
         <input className="compact-enquiry-control" placeholder="Enter your Name" autoComplete="name" {...form.register("fullName")} />
       </Field>
       <Field label="Mobile Number *" error={form.formState.errors.phone?.message}>
-        <span className="compact-phone-control"><span aria-hidden="true">🇮🇳</span><select aria-label="Country code" defaultValue="+91"><option>+91</option></select><input className="compact-phone-input" placeholder="Enter mobile number" type="tel" autoComplete="tel" {...form.register("phone")} /></span>
+        <span className="compact-phone-control"><span aria-hidden="true">🇮🇳</span><span className="phone-country-code">+91</span><input className="compact-phone-input" placeholder="Enter mobile number" type="tel" autoComplete="tel" {...form.register("phone")} /></span>
       </Field>
       <Field label="Email ID *" error={form.formState.errors.email?.message}>
         <input className="compact-enquiry-control" placeholder="Enter your Email ID" type="email" autoComplete="email" {...form.register("email")} />
@@ -159,11 +159,9 @@ function StandardEnquiryForm({ projectTypes }: { projectTypes: string[] }) {
           </Field>
           <Field label="Mobile Number *" error={form.formState.errors.phone?.message}>
             <span className="enquire-phone-control">
-              <span className="enquire-country">
+              <span className="enquire-country" aria-label="India country code">
                 <span aria-hidden="true">🇮🇳</span>
-                <select aria-label="Country code" defaultValue="+91">
-                  <option value="+91">+91</option>
-                </select>
+                <span>+91</span>
               </span>
               <input className="enquire-phone-input" aria-invalid={Boolean(form.formState.errors.phone)} type="tel" autoComplete="tel" {...form.register("phone")} />
             </span>

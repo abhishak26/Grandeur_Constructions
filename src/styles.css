@@ -313,6 +313,11 @@
   padding: 0 0.55rem;
 }
 
+.phone-country-code {
+  color: #333333;
+  font-weight: 600;
+}
+
 .compact-phone-control select,
 .compact-phone-input {
   min-width: 0;
