@@ -89,14 +89,18 @@
 .nav-glow-item::before {
   position: absolute;
   z-index: -1;
-  inset: -0.5rem;
+  inset: -0.18rem;
   pointer-events: none;
   content: "";
+  border: 0.18rem solid transparent;
+  border-radius: 999px;
   background:
-    radial-gradient(ellipse at 15% 50%, rgb(52 126 255 / 72%) 0, transparent 45%),
-    radial-gradient(ellipse at 50% 50%, rgb(193 76 255 / 66%) 0, transparent 44%),
-    radial-gradient(ellipse at 85% 50%, rgb(255 98 181 / 68%) 0, transparent 45%);
-  filter: blur(0.45rem);
+    linear-gradient(rgb(255 255 255 / 92%), rgb(255 255 255 / 92%)) padding-box,
+    conic-gradient(from 0deg, #347eff, #c14cff, #ff62b5, #ffb800, #32dcb5, #347eff) border-box;
+  box-shadow:
+    0 0 0.3rem rgb(52 126 255 / 75%),
+    0 0 0.7rem rgb(193 76 255 / 58%),
+    0 0 1rem rgb(255 98 181 / 42%);
   opacity: 0;
   transition: opacity 180ms ease;
 }
@@ -108,21 +112,18 @@
 
 @keyframes nav-live-radial-glow {
   0% {
-    transform: scale(0.82) translateX(-0.2rem);
-    background-position: 0% 50%;
-    filter: blur(0.55rem);
+    transform: scale(0.98);
+    filter: blur(0.04rem);
     opacity: 0.62;
   }
   50% {
-    transform: scale(1.08) translateX(0.15rem);
-    background-position: 50% 50%;
-    filter: blur(0.35rem);
+    transform: scale(1.04);
+    filter: blur(0);
     opacity: 1;
   }
   100% {
-    transform: scale(0.9) translateX(0.3rem);
-    background-position: 100% 50%;
-    filter: blur(0.55rem);
+    transform: scale(1);
+    filter: blur(0.06rem);
     opacity: 0.72;
   }
 }
