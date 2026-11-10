@@ -130,17 +130,19 @@ export function Footer({
   );
 }
 
-export function WhatsAppButton({ number }: { number: string | null }) {
-  const digits = phoneDigits(number);
-  if (!digits) return null;
+export function WhatsAppButton() {
+  const digits = "919840822267";
   return (
     <a
       href={`https://wa.me/${digits}`}
-      className="whatsapp-float fixed right-4 z-30 inline-flex min-h-11 items-center rounded-full bg-primary px-4 text-sm font-semibold text-secondary shadow-sm"
+      className="whatsapp-float fixed right-4 z-30 grid size-14 place-items-center rounded-full bg-[#25D366] text-white shadow-lg"
+      aria-label="Chat with Grandeur Constructions on WhatsApp"
       onClick={() => track("whatsapp_click")}
       rel="noreferrer"
     >
-      WhatsApp
+      <svg viewBox="0 0 32 32" aria-hidden="true" className="size-8 fill-current">
+        <path d="M16 3.2a12.8 12.8 0 0 0-10.9 19.5L3.2 28.8l6.3-1.8A12.8 12.8 0 1 0 16 3.2Zm0 23.3c-2 0-3.9-.6-5.5-1.7l-.4-.3-3.7 1.1 1.1-3.6-.3-.4A10.7 10.7 0 1 1 16 26.5Zm5.9-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-2.4-1.2-4-2.2-5.1-4.9-.2-.4.2-.4.5-1.3.1-.2.1-.4 0-.6-.1-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.1 3.2 1.3 3.4c.2.2 2.2 3.4 5.4 4.8 2 .9 2.7 1 3.7.8.6-.1 1.9-.8 2.1-1.6.3-.8.3-1.5.2-1.6Z" />
+      </svg>
     </a>
   );
 }

@@ -17,7 +17,7 @@ function SiteLayout() {
         <Outlet />
       </main>
       <Footer settings={settings} services={services} />
-      <WhatsAppButton number={settings.whatsapp} />
+      <WhatsAppButton />
     </div>
   );
 }
