@@ -91,6 +91,12 @@
   animation: nav-aurora-flow 2.8s ease-in-out infinite alternate;
 }
 
+.nav-aurora-link:hover::after {
+  background: linear-gradient(105deg, #ff65c3, #a86cff 28%, #28c9ff 52%, #6df2c1 72%, #ffb84d);
+  background-size: 220% 100%;
+  animation: nav-aurora-flow 2.8s ease-in-out infinite alternate;
+}
+
 @keyframes nav-aurora-flow {
   from {
     background-position: 0% 50%;
