@@ -182,6 +182,7 @@ const PARTNER_LOGOS = [
 ] as const;
 
 function PartnerLogoMarquee() {
+  const rows = [PARTNER_LOGOS, [...PARTNER_LOGOS].reverse()] as const;
   return (
     <section className="partner-marquee" aria-label="Trusted material and design partners">
       <div className="mx-auto max-w-7xl px-5 pt-16 text-center md:px-8">
@@ -192,13 +193,15 @@ function PartnerLogoMarquee() {
         </p>
       </div>
       <div className="partner-marquee-window mt-10">
-        <div className="partner-marquee-track">
-          {[...PARTNER_LOGOS, ...PARTNER_LOGOS].map((logo, index) => (
-            <div className="partner-logo-tile" key={`${logo}-${index}`} aria-hidden={index >= PARTNER_LOGOS.length}>
-              <span>{logo}</span>
-            </div>
-          ))}
-        </div>
+        {rows.map((row, rowIndex) => (
+          <div className={`partner-marquee-track ${rowIndex === 1 ? "partner-marquee-track-reverse" : ""}`} key={rowIndex}>
+            {[...row, ...row].map((logo, index) => (
+              <div className="partner-logo-tile" key={`${rowIndex}-${logo}-${index}`} aria-hidden={index >= row.length}>
+                <span>{logo}</span>
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </section>
   );
