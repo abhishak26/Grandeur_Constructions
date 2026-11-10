@@ -175,6 +175,13 @@ const PARTNER_LOGOS = [
   { name: "Verizon", src: "https://cdn.simpleicons.org/verizon" },
   { name: "Yale", src: "https://cdn.simpleicons.org/yale" },
   { name: "Panasonic", src: "https://cdn.simpleicons.org/panasonic" },
+  { name: "Google", src: "https://cdn.simpleicons.org/google" },
+  { name: "Siemens", src: "https://cdn.simpleicons.org/siemens" },
+  { name: "Bosch", src: "https://cdn.simpleicons.org/bosch" },
+  { name: "3M", src: "https://cdn.simpleicons.org/3m" },
+  { name: "Tata", src: "https://cdn.simpleicons.org/tata" },
+  { name: "Havells", src: "https://cdn.simpleicons.org/havells" },
+  { name: "Caterpillar", src: "https://cdn.simpleicons.org/caterpillar" },
 ] as const;
 
 function PartnerLogoMarquee() {
