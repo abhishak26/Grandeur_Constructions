@@ -13,7 +13,7 @@ function SiteLayout() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main id="content" className="flex-1">
+      <main id="content" className="flex-1 pb-20 lg:pb-0">
         <Outlet />
       </main>
       <Footer settings={settings} services={services} />
