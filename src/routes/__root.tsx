@@ -52,12 +52,6 @@ function RootComponent() {
       </head>
       <body className="min-h-screen bg-background font-sans text-ink antialiased">
         <PreviewHostBridge />
-        <a
-          href="#content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-full focus:bg-primary focus:px-4 focus:py-2"
-        >
-          Skip to content
-        </a>
         <AuthProvider>
           <Outlet />
         </AuthProvider>

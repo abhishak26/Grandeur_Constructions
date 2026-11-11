@@ -18,6 +18,18 @@ const METHODS = [
   ["whatsapp", "WhatsApp"],
 ] as const;
 
+function IndiaFlag() {
+  return (
+    <svg className="india-flag" viewBox="0 0 24 16" role="img" aria-label="India">
+      <rect width="24" height="16" rx="2" fill="#fff" />
+      <path d="M1 1h22v4H1z" fill="#f97316" />
+      <path d="M1 11h22v4H1z" fill="#16a34a" />
+      <circle cx="12" cy="8" r="2" fill="none" stroke="#1d4ed8" strokeWidth=".7" />
+      <circle cx="12" cy="8" r=".45" fill="#1d4ed8" />
+    </svg>
+  );
+}
+
 function Field({
   label,
   error,
@@ -42,7 +54,7 @@ function CompactLeadForm() {
   const form = useForm<EnquiryInput, unknown, EnquiryData>({
     resolver: zodResolver(enquirySchema),
     defaultValues: {
-      fullName: "", email: "", phone: "", projectType: "Chennai",
+      fullName: "", email: "", phone: "", projectType: "General enquiry",
       projectLocation: "Not provided", estimatedBudget: "",
       projectDescription: "Website quote enquiry", preferredContact: "phone", privacyConsent: true,
     },
@@ -77,16 +89,13 @@ function CompactLeadForm() {
         <input className="compact-enquiry-control" placeholder="Enter your Name" autoComplete="name" {...form.register("fullName")} />
       </Field>
       <Field label="Mobile Number *" error={form.formState.errors.phone?.message}>
-        <span className="compact-phone-control"><span aria-hidden="true">🇮🇳</span><span className="phone-country-code">+91</span><input className="compact-phone-input" placeholder="Enter mobile number" type="tel" autoComplete="tel" {...form.register("phone")} /></span>
+        <span className="compact-phone-control"><IndiaFlag /><input className="compact-phone-input" placeholder="Enter mobile number" type="tel" autoComplete="tel" {...form.register("phone")} /></span>
       </Field>
       <Field label="Email ID *" error={form.formState.errors.email?.message}>
         <input className="compact-enquiry-control" placeholder="Enter your Email ID" type="email" autoComplete="email" {...form.register("email")} />
       </Field>
-      <Field label="City *" error={form.formState.errors.projectType?.message}>
-        <select className="compact-enquiry-control" {...form.register("projectType")}>{["Chennai", "Hyderabad", "Bangalore", "Pondicherry", "Coimbatore"].map((city) => <option key={city}>{city}</option>)}</select>
-      </Field>
       {formError ? <p className="compact-enquiry-error" role="alert">{formError}</p> : null}
-      <button type="submit" className="compact-enquiry-submit" disabled={form.formState.isSubmitting}>{form.formState.isSubmitting ? "Sending…" : "Get free quote"}</button>
+      <button type="submit" className="compact-enquiry-submit" disabled={form.formState.isSubmitting}>{form.formState.isSubmitting ? "Sending…" : "Submit"}</button>
     </form>
   );
 }
@@ -106,9 +115,9 @@ function StandardEnquiryForm({ projectTypes }: { projectTypes: string[] }) {
       email: "",
       phone: "",
       projectType: "",
-      projectLocation: "",
+      projectLocation: "Not provided",
       estimatedBudget: "",
-      projectDescription: "",
+      projectDescription: "General contact enquiry",
       preferredContact: "phone",
       privacyConsent: false,
     },
@@ -160,30 +169,13 @@ function StandardEnquiryForm({ projectTypes }: { projectTypes: string[] }) {
           <Field label="Mobile Number *" error={form.formState.errors.phone?.message}>
             <span className="enquire-phone-control">
               <span className="enquire-country" aria-label="India country code">
-                <span aria-hidden="true">🇮🇳</span>
-                <span>+91</span>
+                <IndiaFlag />
               </span>
               <input className="enquire-phone-input" aria-invalid={Boolean(form.formState.errors.phone)} type="tel" autoComplete="tel" {...form.register("phone")} />
             </span>
           </Field>
           <Field label="Email ID *" error={form.formState.errors.email?.message}>
             <input className="input enquire-form-control" aria-invalid={Boolean(form.formState.errors.email)} type="email" autoComplete="email" {...form.register("email")} />
-          </Field>
-          <Field label="Site Location *" error={form.formState.errors.projectLocation?.message}>
-            <input className="input enquire-form-control" aria-invalid={Boolean(form.formState.errors.projectLocation)} {...form.register("projectLocation")} />
-          </Field>
-        </div>
-        <div className="enquire-form-column enquire-form-column-right">
-          <Field label="City *" error={form.formState.errors.projectType?.message}>
-            <select className="input enquire-form-control" aria-invalid={Boolean(form.formState.errors.projectType)} {...form.register("projectType")}>
-              <option value="">Select</option>
-              {["Chennai", "Hyderabad", "Bangalore", "Pondicherry", "Coimbatore"].map((city) => (
-                <option key={city} value={city}>{city}</option>
-              ))}
-            </select>
-          </Field>
-          <Field label="Message *" error={form.formState.errors.projectDescription?.message}>
-            <textarea className="input enquire-form-control enquire-message" aria-invalid={Boolean(form.formState.errors.projectDescription)} {...form.register("projectDescription")} />
           </Field>
         </div>
       </div>
@@ -200,7 +192,7 @@ function StandardEnquiryForm({ projectTypes }: { projectTypes: string[] }) {
         disabled={form.formState.isSubmitting}
         className="enquire-submit"
       >
-        {form.formState.isSubmitting ? "Sending…" : "Send Message"}
+        {form.formState.isSubmitting ? "Sending…" : "Submit"}
       </button>
     </form>
   );
