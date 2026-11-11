@@ -591,9 +591,13 @@ export function HomeView({ data }: { data: HomeData }) {
           </div>
         </div>
         <div className="consultation-strip">
-          <Button to="/consultation" variant="primary">
-            Get free consultation
-          </Button>
+          <div className="consultation-strip-content">
+            <span className="consultation-strip-eyebrow">Bring your vision to life</span>
+            <h2>Let&apos;s shape your next space.</h2>
+            <Button to="/consultation" variant="primary">
+              Get free consultation <ArrowUpRight aria-hidden="true" />
+            </Button>
+          </div>
         </div>
       </section>
 

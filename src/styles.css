@@ -1021,24 +1021,94 @@
 }
 
 .consultation-strip {
+  position: relative;
   display: grid;
   place-items: center;
-  min-height: 9.75rem;
+  min-height: 18rem;
+  overflow: hidden;
+  isolation: isolate;
   border-bottom: 0.3rem solid #f8d264;
   background:
-    linear-gradient(color-mix(in srgb, var(--secondary) 92%, transparent), color-mix(in srgb, var(--secondary) 92%, transparent)),
+    linear-gradient(110deg, rgb(8 25 49 / 92%), rgb(17 52 112 / 78%)),
     url("/media/design.jpg") center / cover;
+}
+
+.consultation-strip::before,
+.consultation-strip::after {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  border: 1px solid rgb(255 211 92 / 30%);
+  content: "";
+  transform: rotate(-12deg);
+}
+
+.consultation-strip::before {
+  top: -8rem;
+  left: 7%;
+  width: 22rem;
+  height: 34rem;
+}
+
+.consultation-strip::after {
+  right: 8%;
+  bottom: -11rem;
+  width: 20rem;
+  height: 30rem;
+  border-color: rgb(255 255 255 / 14%);
+  transform: rotate(18deg);
+}
+
+.consultation-strip-content {
+  display: grid;
+  justify-items: center;
+  gap: 0.7rem;
+  padding: 2rem 1.25rem 2.25rem;
+  text-align: center;
+}
+
+.consultation-strip-eyebrow {
+  color: #ffd35c;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.consultation-strip h2 {
+  max-width: 34rem;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 0.98;
 }
 
 .consultation-strip .button,
 .consultation-strip a {
-  min-width: 23rem;
+  min-width: 18rem;
+  margin-top: 0.75rem;
+  gap: 0.6rem;
   justify-content: center;
-  border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / 30%);
+  border-radius: 0.35rem;
   background: #ffd35c;
   color: var(--secondary);
+  box-shadow: 0 0.75rem 1.75rem rgb(0 0 0 / 22%);
   text-transform: uppercase;
   letter-spacing: 0.02em;
+}
+
+.consultation-strip .button svg,
+.consultation-strip a svg {
+  width: 1rem;
+  height: 1rem;
+  transition: transform 180ms ease;
+}
+
+.consultation-strip .button:hover svg,
+.consultation-strip a:hover svg {
+  transform: translate(0.15rem, -0.15rem);
 }
 
 @media (max-width: 900px) {
@@ -1203,13 +1273,13 @@
   }
 
   .consultation-strip {
-    min-height: 8rem;
+    min-height: 16rem;
     padding: 1.25rem;
   }
 
   .consultation-strip .button,
   .consultation-strip a {
-    min-width: min(100%, 20rem);
+    min-width: min(100%, 18rem);
   }
 }
 
