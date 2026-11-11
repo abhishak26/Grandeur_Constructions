@@ -28,6 +28,11 @@ function ContactPage() {
         title="Tell us about the building."
         lede="The form saves an enquiry for the studio. It does not confirm a visit or a price."
       />
+      <div className="contact-form-wrap">
+        <div className="contact-form-shell">
+          <EnquiryForm projectTypes={services.map((service) => service.title)} />
+        </div>
+      </div>
       <section className="contact-map-stage">
         <div className="contact-details-panel">
           <h2 className="font-display text-2xl text-secondary">Studio</h2>
@@ -64,11 +69,6 @@ function ContactPage() {
           </div>
         ) : null}
       </section>
-      <div className="contact-form-wrap">
-        <div className="contact-form-shell">
-          <EnquiryForm projectTypes={services.map((service) => service.title)} />
-        </div>
-      </div>
     </>
   );
 }

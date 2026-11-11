@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Building2, Menu, Phone, Send, X } from "lucide-react";
+import { Building2, Menu, MessageCircle, PhoneCall, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/site/bits";
 import { COMPANY } from "@/lib/company";
@@ -81,7 +81,7 @@ export function Header() {
         </Link>
       </div>
       {open ? (
-        <nav id="mobile-nav" className="border-t border-line bg-background px-5 py-4 lg:hidden" aria-label="Mobile">
+        <nav id="mobile-nav" className="mobile-nav-panel border-t border-line bg-background px-5 py-4 lg:hidden" aria-label="Mobile">
           <ul className="space-y-1">
             {LINKS.map(([to, label]) => (
               <li key={to}>
@@ -109,15 +109,12 @@ export function Header() {
           className="mobile-bottom-nav-item"
           aria-label={`Call ${COMPANY.name}`}
         >
-          <Phone aria-hidden="true" />
-          <span>Call Us</span>
+          <PhoneCall aria-hidden="true" />
+          <span>Call</span>
         </a>
         <Link to="/contact" className="mobile-bottom-nav-item" aria-label="Send an enquiry">
-          <Send aria-hidden="true" />
-          <span>Enquiry</span>
-        </Link>
-        <Link to="/" className="mobile-bottom-nav-brand" aria-label="Grandeur Constructions home">
-          <img src="/media/grandeur-logo-nav.png" alt="Grandeur Constructions" />
+          <MessageCircle aria-hidden="true" />
+          <span>Enquire</span>
         </Link>
         <Link to="/projects" className="mobile-bottom-nav-item" aria-label="View projects">
           <Building2 aria-hidden="true" />
