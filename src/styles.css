@@ -1219,11 +1219,16 @@
 
   .lead-modal-backdrop {
     align-items: center;
-    padding: 0.75rem;
+    z-index: 20000;
+    padding: max(0.75rem, env(safe-area-inset-top)) 0.75rem
+      calc(max(0.75rem, env(safe-area-inset-bottom)) + 5.75rem);
+    overflow-y: auto;
   }
 
   .lead-modal-card {
-    max-height: calc(100vh - 1.5rem);
+    width: min(100%, 32rem);
+    max-height: calc(100dvh - 8rem);
+    overflow-y: auto;
     border-radius: 1rem;
   }
 
