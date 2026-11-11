@@ -82,7 +82,13 @@ export function Header() {
       </div>
       </header>
       {open ? (
-        <nav id="mobile-nav" className="mobile-nav-panel border-t border-line bg-background px-5 py-4 lg:hidden" aria-label="Mobile">
+        <nav
+          id="mobile-nav"
+          className={`mobile-nav-panel border-t border-line bg-background px-5 py-4 lg:hidden ${
+            desktopHeaderVisible ? "" : "mobile-nav-panel-header-hidden"
+          }`}
+          aria-label="Mobile"
+        >
           <ul className="space-y-1">
             {LINKS.map(([to, label]) => (
               <li key={to}>
@@ -125,7 +131,10 @@ export function Header() {
           className="mobile-bottom-nav-item mobile-bottom-nav-menu"
           aria-expanded={open}
           aria-controls="mobile-nav"
-          onClick={() => setOpen((value) => !value)}
+          onClick={() => {
+            setDesktopHeaderVisible(true);
+            setOpen((value) => !value);
+          }}
         >
           {open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
           <span>Menu</span>
