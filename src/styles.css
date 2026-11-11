@@ -329,6 +329,10 @@
   transform-origin: bottom center;
 }
 
+.mobile-nav-panel-header-hidden {
+  top: 0.75rem;
+}
+
 @keyframes mobile-nav-rise {
   from {
     opacity: 0;
@@ -407,7 +411,6 @@
   }
 
   .site-header {
-    transform: none !important;
     z-index: 10000;
     height: 3.25rem;
     min-height: 3.25rem;
