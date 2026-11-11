@@ -12,13 +12,10 @@ import type { getHome } from "@/lib/public.functions";
 type HomeData = Awaited<ReturnType<typeof getHome>>;
 type Project = HomeData["featured"][number];
 
-const LEAD_MODAL_SESSION_KEY = "grandeur-lead-modal-closed";
-
 function LeadCaptureModal({ projectTypes }: { projectTypes: string[] }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (window.sessionStorage.getItem(LEAD_MODAL_SESSION_KEY) === "true") return;
     const timer = window.setTimeout(() => setOpen(true), 3000);
     return () => window.clearTimeout(timer);
   }, []);
@@ -37,7 +34,6 @@ function LeadCaptureModal({ projectTypes }: { projectTypes: string[] }) {
   }, [open]);
 
   function closeModal() {
-    window.sessionStorage.setItem(LEAD_MODAL_SESSION_KEY, "true");
     setOpen(false);
   }
 
@@ -67,15 +63,10 @@ function LeadCaptureModal({ projectTypes }: { projectTypes: string[] }) {
         <aside className="lead-modal-brand">
           <img src="/media/grandeur-logo.png" alt="Grandeur Constructions" />
           <h2>
-            Home
-            <br />
-            Construction
-            <strong>Experts</strong>
-            <br />
-            In
-            <span>India</span>
+            <span className="lead-modal-brand-line">Home</span>
+            <span className="lead-modal-brand-line">Construction <strong>Experts</strong></span>
+            <span className="lead-modal-brand-line">In <b>India</b></span>
           </h2>
-          <p className="lead-modal-badge">Turnkey construction<br />services</p>
         </aside>
       </section>
     </div>
