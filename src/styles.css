@@ -364,12 +364,13 @@
   }
 
   .mobile-nav-panel {
-    position: fixed;
+    position: fixed !important;
+    top: 4rem;
     right: max(0.75rem, calc((100vw - 32rem) / 2));
-    bottom: calc(max(0.75rem, env(safe-area-inset-bottom)) + 5rem + 0.5rem);
+    bottom: calc(max(0.75rem, env(safe-area-inset-bottom)) + 5.75rem);
     left: max(0.75rem, calc((100vw - 32rem) / 2));
-    z-index: 9998;
-    max-height: calc(100dvh - 8rem);
+    z-index: 10000;
+    max-height: none;
     overflow-y: auto;
     border: 1px solid rgb(23 23 23 / 12%);
     border-radius: 1.5rem;
@@ -384,6 +385,7 @@
 
   .site-header {
     transform: none !important;
+    z-index: 10000;
     height: 3.25rem;
     min-height: 3.25rem;
     background: #fff;
