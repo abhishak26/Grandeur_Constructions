@@ -16,7 +16,7 @@ function LeadCaptureModal({ projectTypes }: { projectTypes: string[] }) {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setOpen(true), 3000);
+    const timer = window.setTimeout(() => setOpen(true), 10000);
     return () => window.clearTimeout(timer);
   }, []);
 
@@ -27,9 +27,11 @@ function LeadCaptureModal({ projectTypes }: { projectTypes: string[] }) {
     };
     document.addEventListener("keydown", onKeyDown);
     document.body.classList.add("lead-modal-open");
+    document.documentElement.classList.add("lead-modal-open");
     return () => {
       document.removeEventListener("keydown", onKeyDown);
       document.body.classList.remove("lead-modal-open");
+      document.documentElement.classList.remove("lead-modal-open");
     };
   }, [open]);
 
