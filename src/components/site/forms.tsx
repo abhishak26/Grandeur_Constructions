@@ -33,15 +33,17 @@ function IndiaFlag() {
 function Field({
   label,
   error,
+  hideLabel = false,
   children,
 }: {
   label: string;
   error?: string;
+  hideLabel?: boolean;
   children: ReactNode;
 }) {
   return (
     <label className="block space-y-2">
-      <span className="text-sm font-medium text-secondary">{label}</span>
+      <span className={hideLabel ? "sr-only" : "text-sm font-medium text-secondary"}>{label}</span>
       {children}
       {error ? <span className="block text-sm text-danger">{error}</span> : null}
     </label>
@@ -164,18 +166,18 @@ function StandardEnquiryForm({ projectTypes }: { projectTypes: string[] }) {
       <div className="enquire-form-grid">
         <div className="enquire-form-column">
           <Field label="Name *" error={form.formState.errors.fullName?.message}>
-            <input className="input enquire-form-control" aria-invalid={Boolean(form.formState.errors.fullName)} autoComplete="name" {...form.register("fullName")} />
+            <input className="input enquire-form-control" aria-label="Name" placeholder="Enter your name" aria-invalid={Boolean(form.formState.errors.fullName)} autoComplete="name" {...form.register("fullName")} />
           </Field>
           <Field label="Mobile Number *" error={form.formState.errors.phone?.message}>
             <span className="enquire-phone-control">
               <span className="enquire-country" aria-label="India country code">
                 <IndiaFlag />
               </span>
-              <input className="enquire-phone-input" aria-invalid={Boolean(form.formState.errors.phone)} type="tel" autoComplete="tel" {...form.register("phone")} />
+              <input className="enquire-phone-input" aria-label="Mobile Number" placeholder="Enter your mobile number" aria-invalid={Boolean(form.formState.errors.phone)} type="tel" autoComplete="tel" {...form.register("phone")} />
             </span>
           </Field>
           <Field label="Email ID *" error={form.formState.errors.email?.message}>
-            <input className="input enquire-form-control" aria-invalid={Boolean(form.formState.errors.email)} type="email" autoComplete="email" {...form.register("email")} />
+            <input className="input enquire-form-control" aria-label="Email ID" placeholder="Enter your email ID" aria-invalid={Boolean(form.formState.errors.email)} type="email" autoComplete="email" {...form.register("email")} />
           </Field>
         </div>
       </div>
