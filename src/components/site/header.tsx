@@ -80,6 +80,7 @@ export function Header() {
           <img src="/media/grandeur-logo.png" alt="Grandeur Constructions" />
         </Link>
       </div>
+      </header>
       {open ? (
         <nav id="mobile-nav" className="mobile-nav-panel border-t border-line bg-background px-5 py-4 lg:hidden" aria-label="Mobile">
           <ul className="space-y-1">
@@ -102,7 +103,6 @@ export function Header() {
           </div>
         </nav>
       ) : null}
-      </header>
       <nav className="mobile-bottom-nav lg:hidden" aria-label="Mobile quick actions">
         <a
           href={`tel:${COMPANY.phone.replace(/[^\d+]/g, "")}`}

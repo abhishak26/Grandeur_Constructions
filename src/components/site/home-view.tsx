@@ -518,7 +518,7 @@ export function HomeView({ data }: { data: HomeData }) {
 
       <section className="bg-surface">
         <div className="mx-auto max-w-7xl px-5 py-20 md:px-8">
-          <SectionLabel>Clients</SectionLabel>
+          <SectionLabel>Testimonials</SectionLabel>
           <h2 className="mt-3 font-display text-4xl text-secondary">Notes from people we have built for.</h2>
           <div className="mt-8">
             {data.testimonials.length ? (
